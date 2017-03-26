@@ -212,7 +212,7 @@ object charlyGarcia{
 	var composicion=90
 	var carisma=65
 	
-	method tocarcon(artista){
+	method tocarCon(artista){
 		return  self.humor()>0.8
 	}
 	method humor(){
@@ -220,7 +220,6 @@ object charlyGarcia{
 	}
 	method reducir(valor){
 		return valor * self.humor()
-		
 	}	
 	method canto(){return self.reducir(canto)}
 	method guitarra(){return self.reducir(guitarra)}

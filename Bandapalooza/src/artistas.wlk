@@ -10,6 +10,9 @@ object jimmyHendrix{
 	var tocarconOtro=true
 	
 	method tocarCon(artista){
+		return self.tocoCon(artista) && artista.tocoCon(self)
+	}
+	method tocoCon(artista){
 		return (tocarconOtro && self.validarArtista(artista))
 	}
 	method validarArtista(artista){
@@ -129,6 +132,9 @@ object johnLennon{
 	var yokoCerca =true
 	var reductor=0.8
 	method tocarCon(artista){
+		return self.tocoCon(artista) && artista.tocoCon(self)
+	}
+	method tocoCon(artista){
 		return (!yokoCerca && self.promedioArtista(artista)>70)
 	}
 	method reducir(valor){
@@ -192,6 +198,9 @@ object paulMcCartney{
 	method carisma(){return carisma}
 
 	method tocarCon(artista){
+		return self.tocoCon(artista) && artista.tocoCon(self)
+	}
+	method tocoCon(artista){
 		return (artista.canto()>canto ||
 				artista.guitarra() > guitarra ||
 				artista.guitarra() > bateria ||
@@ -200,8 +209,6 @@ object paulMcCartney{
 				artista.guitarra() > composicion ||
 				artista.guitarra() > carisma)
 	}
-
-		
 }
 object charlyGarcia{
 	var canto =60
@@ -213,6 +220,9 @@ object charlyGarcia{
 	var carisma=65
 	
 	method tocarCon(artista){
+		return  self.tocoCon(artista) && artista.tocoCon(self)
+	}
+	method tocoCon(artista){
 		return  self.humor()>0.8
 	}
 	method humor(){

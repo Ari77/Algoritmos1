@@ -110,8 +110,12 @@ object carl{
 	var donasComidasHoy=30
 	const maxDonas=50
 	
+	method donasComidas(){
+		return donasXdia.last()
+	}
+	
 	method estaDistraido(){
-		return (donasXdia.sum()>maxDonas) && (donasXdia.max()>donasXdia.last())
+		return (donasXdia.sum()>maxDonas) && (donasXdia.max()>self.donasComidas())
 	}
 	method registrarDonasDelDia(){
 		donasXdia.add(donasComidasHoy)

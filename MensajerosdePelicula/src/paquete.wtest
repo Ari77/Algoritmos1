@@ -1,0 +1,8 @@
+import paquete.*
+import mensajeros.*
+import destinos.*
+
+test "Paquete esta pago y mensajero puede ingresar" {
+	paquete.pagar()
+	assert.that(paquete.puedeSerEntregado(chuck,matrix))
+}

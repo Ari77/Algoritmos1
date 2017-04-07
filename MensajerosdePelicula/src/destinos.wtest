@@ -1,6 +1,0 @@
-import mensajeros.*
-test "" {
-
-	assert.that()
-
-}

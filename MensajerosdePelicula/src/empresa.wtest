@@ -1,3 +1,8 @@
+import destinos.*
+import empresa.*
+import mensajeros.*
+import paquete.*
+import transportes.*
 
 test "testX" {
 

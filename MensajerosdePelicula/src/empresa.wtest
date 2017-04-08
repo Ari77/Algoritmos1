@@ -4,8 +4,30 @@ import mensajeros.*
 import paquete.*
 import transportes.*
 
-test "testX" {
+test "Inicialmente no tengo empleados"{
+	assert.that(empresaMensajeria.mensajeros().isEmpty())
+}
 
-	assert.that(true)
-
+test "Agregar un empleado" {
+	empresaMensajeria.contratarA(chuck)
+	assert.that(empresaMensajeria.esEmpleado(chuck))
+}
+test "Despedir empleado"{
+	empresaMensajeria.contratarA(chuck)
+	empresaMensajeria.despedirA(chuck)
+	assert.notThat(empresaMensajeria.esEmpleado(chuck))
+	
+}
+test "Despedir a todos"{
+	empresaMensajeria.contratarA(chuck)
+	empresaMensajeria.contratarA(neo)
+	empresaMensajeria.contratarA(roberto)
+	empresaMensajeria.despedirTodos()
+	assert.that(empresaMensajeria.mensajeros().isEmpty())
+}
+test "Comprobar si es grande cuando cantidad de mensajeros mayor a 2"{
+	empresaMensajeria.contratarA(chuck)
+	empresaMensajeria.contratarA(neo)
+	empresaMensajeria.contratarA(roberto)
+	assert.that(empresaMensajeria.esGrande())
 }

@@ -9,7 +9,7 @@ object empresaMensajeria {
 		mensajeros.remove(mensajero)
 	}
 	method despedirTodos(){
-		mensajeros.forEach{mensajero=>mensajero.remove()}
+		mensajeros.clear()
 	}
 	method esGrande(){
 		return mensajeros.size()>2
@@ -19,6 +19,12 @@ object empresaMensajeria {
 	}
 	method pesoUltimoMensajero(){
 		return mensajeros.last().pesoTotal()
+	}
+	method esEmpleado(mensajero){
+		return mensajeros.contains(mensajero)
+	}
+	method mensajeros(){
+		return mensajeros
 	}
 
 }

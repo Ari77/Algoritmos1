@@ -4,10 +4,15 @@ import mensajeros.*
 import paquete.*
 import transportes.*
 
+//Test transportes
+test "Comprobar peso de camion"{
+	camion.setCantidadDeAcoplados(8)
+	assert.equals(camion.peso(),8*500)
+}
+//Test empresa
 test "Inicialmente no tengo empleados"{
 	assert.that(empresaMensajeria.mensajeros().isEmpty())
 }
-
 test "Agregar un empleado" {
 	empresaMensajeria.contratarA(chuck)
 	assert.that(empresaMensajeria.esEmpleado(chuck))
@@ -25,9 +30,18 @@ test "Despedir a todos"{
 	empresaMensajeria.despedirTodos()
 	assert.that(empresaMensajeria.mensajeros().isEmpty())
 }
+test "Verificar empleado"{
+	empresaMensajeria.contratarA(chuck)
+	assert.that(empresaMensajeria.esEmpleado(chuck))
+}
 test "Comprobar si es grande cuando cantidad de mensajeros mayor a 2"{
 	empresaMensajeria.contratarA(chuck)
 	empresaMensajeria.contratarA(neo)
 	empresaMensajeria.contratarA(roberto)
 	assert.that(empresaMensajeria.esGrande())
 }
+test "Peso de ultimo empleado"{
+	empresaMensajeria.contratarA(chuck)
+	assert.equals(empresaMensajeria.pesoUltimoMensajero(),chuck.pesoTotal())
+}
+//Falta testear puedeSerEntregado

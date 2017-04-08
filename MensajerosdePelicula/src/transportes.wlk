@@ -13,7 +13,7 @@ object camion {
 	method cantidadDeAcoplados(){
 		return cantidadDeAcoplados
 	}
-	method cantidadDeAcoplados(cantidad){
+	method setCantidadDeAcoplados(cantidad){
 		cantidadDeAcoplados= cantidad
 	} 
 	method peso() {

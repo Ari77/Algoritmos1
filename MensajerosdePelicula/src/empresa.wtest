@@ -4,6 +4,16 @@ import mensajeros.*
 import paquete.*
 import transportes.*
 
+test "Roberto puede llvar un paquete pago en un camion con un acoplado"{
+	camion.setCantidadDeAcoplados(1)
+	roberto.transporte(camion)
+	paquete.pagar()
+	assert.that(paquete.puedeSerEntregado(roberto,puenteDeBrooklin))
+}
+test "Neo con credito no puede entregar paquete que no esta pago en la matrix"{
+	neo.cargarCredito()
+	assert.notThat(paquete.puedeSerEntregado(neo,laMatrix))
+}
 //Test transportes
 test "Comprobar peso de camion"{
 	camion.setCantidadDeAcoplados(8)
@@ -21,7 +31,6 @@ test "Despedir empleado"{
 	empresaMensajeria.contratarA(chuck)
 	empresaMensajeria.despedirA(chuck)
 	assert.notThat(empresaMensajeria.esEmpleado(chuck))
-	
 }
 test "Despedir a todos"{
 	empresaMensajeria.contratarA(chuck)

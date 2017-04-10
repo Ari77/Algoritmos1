@@ -5,8 +5,8 @@ object puenteDeBrooklin {
 		 return mensajero.pesoTotal() < 1000
 	}
 }
-object matrix {
+object laMatrix {
 	method puedeSerAccedidoPor(mensajero) {
-		return mensajero.puedeHacerUnaLLamada()
+		return mensajero.puedeHacerUnaLlamada()
 	}
 }

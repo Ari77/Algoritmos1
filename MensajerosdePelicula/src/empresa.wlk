@@ -26,5 +26,15 @@ object empresaMensajeria {
 	method mensajeros(){
 		return mensajeros
 	}
+	method puedeAlguienEntregarlo(paquete,destino){
+		return mensajeros.any({mensajero=>paquete.puedeSerEntregado(mensajero,destino)})
+	}
+	method elPaqueteEsFacil(paquete,destino){
+		return mensajeros.all({mensajero=>paquete.puedeSerEntregado(mensajero,destino)})
+	}
+	method quienesPuedenEntregarlo(paquete,destino){
+		return mensajeros.filter({mensajero=>paquete.puedeSerEntregado(mensajero,destino)})
+	}
+	
 
 }

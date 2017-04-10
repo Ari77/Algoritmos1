@@ -25,6 +25,9 @@ object neo {
 	method puedeHacerUnaLlamada() {
 		return tieneCredito
 	}
+	method cargarCredito(){
+		tieneCredito=true
+	}
 }
 object chuck {
 	const pesoPropio = 900

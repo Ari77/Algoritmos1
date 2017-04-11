@@ -3,8 +3,21 @@ import empresa.*
 import mensajeros.*
 import paquete.*
 import transportes.*
-
-test "Roberto puede llvar un paquete pago en un camion con un acoplado"{
+//Test transportes
+test "Comprobar peso de camion"{
+	camion.setCantidadDeAcoplados(8)
+	assert.equals(8*500,camion.peso())
+}
+test "Comprobar peso de bicicleta"{
+	assert.equals(0,bicicleta.peso())
+}
+//Test Mensajeros
+test "Peso total Roberto"{
+	camion.setCantidadDeAcoplados(1)
+	roberto.transporte(camion)
+	assert.equals(590,roberto.pesoTotal())
+}
+test "Roberto puede llevar un paquete pago en un camion con un acoplado"{
 	camion.setCantidadDeAcoplados(1)
 	roberto.transporte(camion)
 	paquete.pagar()
@@ -14,11 +27,7 @@ test "Neo con credito no puede entregar paquete que no esta pago en la matrix"{
 	neo.cargarCredito()
 	assert.notThat(paquete.puedeSerEntregado(neo,laMatrix))
 }
-//Test transportes
-test "Comprobar peso de camion"{
-	camion.setCantidadDeAcoplados(8)
-	assert.equals(camion.peso(),8*500)
-}
+
 //Test empresa
 test "Inicialmente no tengo empleados"{
 	assert.that(empresaMensajeria.mensajeros().isEmpty())

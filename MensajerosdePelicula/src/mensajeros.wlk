@@ -1,4 +1,3 @@
-
 object roberto {
 	var transporte
 	const pesoPropio = 90

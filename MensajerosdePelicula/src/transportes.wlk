@@ -1,11 +1,9 @@
-
 object bicicleta {
 	var pesoPropio = 0
 	method peso() {
 		return pesoPropio
 	}
 }
-
 object camion {
 	const pesoPorAcoplado = 500
 	var cantidadDeAcoplados 

@@ -1,0 +1,7 @@
+class Clientes {
+
+	method precioAcordado(){
+		
+	}
+
+}

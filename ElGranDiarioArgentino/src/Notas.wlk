@@ -1,13 +1,18 @@
 class NotaComprada {
 	var precioAcordado
 	var cantCaracteres
+	var autor
 
-	constructor(_precioAcordado,_cantCaracteres){
+	constructor(_precioAcordado,_cantCaracteres,_autor){
 		precioAcordado=_precioAcordado
 		cantCaracteres=_cantCaracteres
+		autor=_autor
 	}
 	method costo(){
 		return precioAcordado
+	}
+	method autor(){
+		return autor
 	}
 }
 
@@ -22,7 +27,9 @@ class NotaEspecial{
 	method costo(){
 		return cantCaracteres/1000 * autor.cobraPorNota()
 	}	
-	
+	method autor(){
+		return autor
+	}
 }
 class NotaStaff{
 	var autor
@@ -35,4 +42,7 @@ class NotaStaff{
 	method costo(){
 		return 0
 	}
+	method autor(){
+		return autor
+	}	
 }

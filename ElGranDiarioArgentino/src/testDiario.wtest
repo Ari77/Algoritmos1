@@ -1,0 +1,12 @@
+import Edicion.*
+import Dias.*
+
+test "testX" {
+
+	var algo = new Edicion(new Date(1,5,2017))
+	var fecha = new Date(1,5,2017)
+	var lunes = new Dia(30,100000,3)
+	
+	assert.equals(lunes,algo.dia())
+
+}

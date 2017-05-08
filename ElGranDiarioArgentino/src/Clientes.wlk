@@ -1,11 +1,4 @@
-class Clientes {
-	var precioAcordado
+class Cliente {
 
-	constructor (_precioAcordado){
-		precioAcordado=_precioAcordado
-	}
-	method precioAcordado(){
-		return precioAcordado
-	}
 
 }

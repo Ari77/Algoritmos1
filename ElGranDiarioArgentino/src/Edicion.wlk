@@ -3,13 +3,13 @@ class Edicion {
 	var publicidades = []
 	var dia
 	
-	constructor(_fecha){
-		dia=_fecha.dayOfWeek()
+	constructor(_dia){
+		dia=_dia
 	}
 	method costoContenido(){
 		return notas.sum({nota=>nota.costo()})
 	}
-	method ingresoPublicidad(){
+	method ingresoPorPublicidad(){
 		return publicidades.sum({publicidad=>publicidad.valor()})
 	}
 	method agregarNota(_nota){
@@ -18,14 +18,15 @@ class Edicion {
 	method agregarPublicidad(_publicidad){
 		publicidades.add(_publicidad)
 	}
-	method costoImpresion(){
-		return dia.cantidadHojas()*0.001
+	method costoImpresion(_costo){
+		return dia.cantidadHojas()*_costo
 	}
 	method dia(){
 		return dia
 	}
-	
-	
+	method cuantasVecesEstaLaPublicidad(_publicidad){
+		return publicidades.map({_publicidad}).size()
+	}
 }
 
 

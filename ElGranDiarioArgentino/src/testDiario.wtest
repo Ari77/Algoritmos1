@@ -1,12 +1,27 @@
-import Edicion.*
 import Dias.*
+import Edicion.*
+import Publicidades.*
+import Clientes.*
 
-test "testX" {
+//Test publicidades
+test "Una publicidad de 20 centimetros y un precio acordado de 5 sale 100"{
+	var juan = new Cliente()
+	var detergenteAla = new Publicidad(20,5,juan)
+	assert.equals(100,detergenteAla.valor())	
+}
 
-	var algo = new Edicion(new Date(1,5,2017))
-	var fecha = new Date(1,5,2017)
-	var lunes = new Dia(30,100000,3)
-	
-	assert.equals(lunes,algo.dia())
 
+
+//Test ediciones
+test "Una edicion del domingo tiene un costo de impresion de 0.048" {
+	var primicia= new Edicion(domingo)
+	assert.equals(48*0.001,primicia.costoImpresion(0.001))
+}
+test "La edicion devuelve cuantas veces esta la publicidad"{
+	var juan = new Cliente()
+	var primicia= new Edicion(domingo)
+	var detergenteAla = new Publicidad(20,5,juan)
+	primicia.agregarPublicidad(detergenteAla)
+	primicia.agregarPublicidad(detergenteAla)
+	assert.equals(2,primicia.cuantasVecesEstaLaPublicidad(detergenteAla))
 }

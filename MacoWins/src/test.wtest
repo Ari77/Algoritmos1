@@ -31,3 +31,10 @@ test "El precio final de una prenda es (valor fijo del negocio + precio base) * 
 	var precioFinalEsperado= negocio.valorFijo()+prenda.precioBase() * prenda.tasaImportacion()
 	assert.equals(precioFinalEsperado,prenda.precioFinal())
 }
+test "La ganancias del dia es la sumatoria del total de ventas"{
+	var esImportado=false
+	var prenda = new Pantalon(esImportado)	
+	var otraPrenda = new Pantalon(esImportado)
+	
+	var gananciaEsperada
+}

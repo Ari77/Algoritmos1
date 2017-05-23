@@ -40,10 +40,28 @@ class Camisa inherits Prenda{
 		return precio
 	}
 }
+class Venta{
+	var prenda
+	var cantidad
+	
+	constructor (_prenda,_cantidad){
+		prenda=_prenda
+		cantidad=_cantidad
+	}
+	method precioFinal(){
+		return prenda.precioFinal()*cantidad
+	}
+}
 object negocio{
 	const valorFijo =100
-	
+	var ventas = []
 	method valorFijo(){
 		return valorFijo
+	}
+	method gananciaDeHoy(){
+		return ventas.sum({venta=>venta.precioFinal()})
+	}
+	method agregarVenta(_venta){
+		ventas.add(_venta)
 	}
 }

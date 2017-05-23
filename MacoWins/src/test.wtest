@@ -18,7 +18,7 @@ test "El valor fijo del negocio es 100"{
 test "La tasa de importacion de una prenda importada es del 30%"{
 	var esImportada = true
 	var prendaImportada = new Pantalon(esImportada)
-	assert.equals(30,prendaImportada.tasaImportacion())
+	assert.equals(1.3,prendaImportada.tasaImportacion())
 }
 test "La tasa de importacion de una prenda nacional es del 0%"{
 	var esImportada = false
@@ -28,6 +28,6 @@ test "La tasa de importacion de una prenda nacional es del 0%"{
 test "El precio final de una prenda es (valor fijo del negocio + precio base) * tasa importacion"{
 	var esImportada= true
 	var prenda = new Pantalon(esImportada)
-	var precioFinalEsperado= negocio.valorFijo()+prenda.precioBase() * (1+ prenda.tasaImportacion()/100)
-	assert.equals(precioFinalEsperado,prenda.PrecioFinal())
+	var precioFinalEsperado= negocio.valorFijo()+prenda.precioBase() * prenda.tasaImportacion()
+	assert.equals(precioFinalEsperado,prenda.precioFinal())
 }

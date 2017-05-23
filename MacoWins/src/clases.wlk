@@ -1,5 +1,5 @@
 class Prenda{
-	const tasaImportacion =30
+	const tasaImportacion =1.3
 	var esImportada
 	constructor(_importada){
 		esImportada=_importada
@@ -15,7 +15,7 @@ class Prenda{
 		return esImportada 
 	}
 	method precioFinal(){
-		return negocio.valorFijo()+self.precioBase() * (1+ self.tasaImportacion()/100)
+		return negocio.valorFijo()+self.precioBase() * self.tasaImportacion()
 	}
 	method precioBase()
 }

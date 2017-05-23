@@ -1,24 +1,3 @@
-class Saco{
-	const precio = 1300
-		
-	method precioBase(){
-		return precio
-	}
-}
-class Pantalon{
-	const precio = 1250
-		
-	method precioBase(){
-		return precio
-	}
-}
-class Camisa{
-	const precio = 1200
-		
-	method precioBase(){
-		return precio
-	}
-}
 class Prenda{
 	const tasaImportacion =30
 	var esImportada
@@ -34,6 +13,31 @@ class Prenda{
 	}
 	method esImportada() {
 		return esImportada 
+	}
+	method precioFinal(){
+		return negocio.valorFijo()+self.precioBase() * (1+ self.tasaImportacion()/100)
+	}
+	method precioBase()
+}
+class Saco inherits Prenda{
+	const precio = 1300
+	constructor(_importada) = super(_importada)
+	override method precioBase(){
+		return precio
+	}
+}
+class Pantalon inherits Prenda{
+	const precio = 1250
+	constructor(_importada) = super(_importada)
+	override method precioBase(){
+		return precio
+	}
+}
+class Camisa inherits Prenda{
+	const precio = 1200
+	constructor(_importada) = super(_importada)	
+	override method precioBase(){
+		return precio
 	}
 }
 object negocio{

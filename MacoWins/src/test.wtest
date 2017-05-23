@@ -1,15 +1,15 @@
 import clases.*
 
 test "El precio base de un saco es 1300"{
-	var saco= new Saco()
+	var saco= new Saco(true)
 	assert.equals(1300,saco.precioBase())
 }
 test "El precio base de un pantalon es 1250"{
-	var pantalon = new Pantalon()
+	var pantalon = new Pantalon(true)
 	assert.equals(1250,pantalon.precioBase())
 }
 test "El precio base de una camisa es 1200"{
-	var camisa = new Camisa()
+	var camisa = new Camisa(true)
 	assert.equals(1200,camisa.precioBase())
 }
 test "El valor fijo del negocio es 100"{
@@ -17,11 +17,17 @@ test "El valor fijo del negocio es 100"{
 }
 test "La tasa de importacion de una prenda importada es del 30%"{
 	var esImportada = true
-	var prendaImportada = new Prenda(esImportada)
+	var prendaImportada = new Pantalon(esImportada)
 	assert.equals(30,prendaImportada.tasaImportacion())
 }
 test "La tasa de importacion de una prenda nacional es del 0%"{
 	var esImportada = false
-	var prendaNacional = new Prenda(esImportada)
+	var prendaNacional = new Pantalon(esImportada)
 	assert.equals(0,prendaNacional.tasaImportacion())
+}
+test "El precio final de una prenda es (valor fijo del negocio + precio base) * tasa importacion"{
+	var esImportada= true
+	var prenda = new Pantalon(esImportada)
+	var precioFinalEsperado= negocio.valorFijo()+prenda.precioBase() * (1+ prenda.tasaImportacion()/100)
+	assert.equals(precioFinalEsperado,prenda.PrecioFinal())
 }

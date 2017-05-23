@@ -1,0 +1,10 @@
+import clases.*
+
+test "El precio base de un saco es 1300"{
+	var saco= new Saco()
+	assert.equals(1300,saco.precioBase())
+}
+test "El precio base de un pantalon es 1250"{
+	var pantalon = new Pantalon()
+	assert.equals(1250,pantalon.precioBase())
+}

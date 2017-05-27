@@ -33,5 +33,4 @@ class Paciente{
 	method amenazada(_persona){
 		umbralTolerancia=umbralTolerancia*2
 	}
-	
 }

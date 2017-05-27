@@ -5,7 +5,11 @@ class Persona{
 	var agresiones=[]
 	var familia=[]
 	var actitud
-	
+
+	constructor(_familia,_actitud){
+		familia=_familia
+		actitud=_actitud
+	}
 	method recibirAgresion(_agresion){
 		agresiones.add(_agresion)
 		if(_agresion.esGrave()||self.esAgresionFamiliar(_agresion)||actitud.hacerDenuncia()){
@@ -19,7 +23,7 @@ class Persona{
 		actitud=_actitud
 	}
 	method amanazadaDeMuerte(){
-		
+		actitud.amenazada()
 	}
 	method agresionesPor(_agresor){
 		return agresiones.count({agresion=>agresion.agresor()==_agresor})
@@ -37,7 +41,6 @@ class Persona{
 		self.cambiarActitud(militante)
 	}
 }
-
 object autoridades{
 	var denuncias=[]
 	var nro=0

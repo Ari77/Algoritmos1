@@ -1,10 +1,13 @@
 import Denuncia.*
+import Actitud.*
+
 class Persona{
 	var agresiones=[]
 	var familia=[]
 	var actitud
 	
-	method evaluarAgresion(_agresion){
+	method recibirAgresion(_agresion){
+		agresiones.add(_agresion)
 		if(_agresion.esGrave()||self.esAgresionFamiliar(_agresion)||actitud.hacerDenuncia()){
 			autoridades.denunciar(_agresion,self)
 		}
@@ -23,6 +26,15 @@ class Persona{
 	}
 	method fueAgredidaGravementePorFamiliar(){
 		return agresiones.any({agresion=>familia.contains(agresion.agresor()) && agresion.esGrave()})
+	}
+	method actitud(){
+		return actitud
+	}
+	method serAcompaniadoPor(_persona){
+		self.cambiarActitud(_persona.actitud())
+	}
+	method participarDeOrganizacionSocial(){
+		self.cambiarActitud(militante)
 	}
 }
 

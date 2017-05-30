@@ -36,6 +36,12 @@ test "Una agresion es solo grave si tiene alguna palabra inaceptable"{
 test "Una agresion no es grave si no tiene alguna palabra inaceptable"{
 	assert.notThat(fixture.agresionNoGrave(fixture.unaPersonaMilitante()).esGrave())	
 }
+test "Una persona miedosa nunca denuncia la agresion"{
+	assert.notThat(fixture.unaPersonaMiedosa().denunciaLaAgresion(fixture.agresionNoGrave(fixture.unaPersonaMilitante())))
+}
+test "Una persona militante no denuncia una agresion que no sea grave"{
+	assert.that(fixture.unaPersonaMiedosa().denunciaLaAgresion(fixture.agresionNoGrave(fixture.unaPersonaMilitante())))
+}
 
 test "Juan no es igual a pedro" {
 	var juan=fixture.unaPersonaMiedosa()

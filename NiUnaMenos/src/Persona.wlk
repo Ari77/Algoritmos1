@@ -13,9 +13,12 @@ class Persona{
 	}
 	method recibirAgresion(_agresion){
 		agresiones.add(_agresion)
-		if(_agresion.esGrave()||self.esAgresionFamiliar(_agresion)||actitud.hacerDenuncia()){
+		if (self.denunciaLaAgresion(_agresion)){
 			autoridades.denunciar(_agresion,self)
 		}
+	}
+	method denunciaLaAgresion(_agresion){
+		return (_agresion.esGrave()||self.esAgresionFamiliar(_agresion)||actitud.hacerDenuncia())
 	}
 	method esAgresionFamiliar(_agresion){
 		return familia.contains(_agresion.agresor())

@@ -23,15 +23,19 @@ object fixture{
 		return new Agresion("casa",_agresor,["mala","inutil"])
 	}
 	method agresionNoGrave(_agresor){
-		return new Agresion("casa",_agresor,["inutil"])
+		return new Agresion("casa",_agresor,["mala"])
 	}
 }
 
 test "Una agresion fisica siempre es grave"{
-	var juan = fixture.unaPersonaMilitante()
-	assert.that(fixture.agresionFisica(juan).esGrave())
+	assert.that(fixture.agresionFisica(fixture.unaPersonaMilitante()).esGrave())
 }
-
+test "Una agresion es solo grave si tiene alguna palabra inaceptable"{
+	assert.that(fixture.agresionGrave(fixture.unaPersonaMilitante()).esGrave())	
+}
+test "Una agresion no es grave si no tiene alguna palabra inaceptable"{
+	assert.notThat(fixture.agresionNoGrave(fixture.unaPersonaMilitante()).esGrave())	
+}
 
 test "Juan no es igual a pedro" {
 	var juan=fixture.unaPersonaMiedosa()

@@ -30,7 +30,7 @@ class AgresionFisica inherits Agresion{
 	}
 }
 object rupi{
-	var palabrasInaceptables=[]
+	var palabrasInaceptables=["inutil","inservible"]
 	method esInaceptable(_palabra){
 		return palabrasInaceptables.contains(_palabra)
 	}

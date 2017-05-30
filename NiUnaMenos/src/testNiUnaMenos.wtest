@@ -1,6 +1,40 @@
+import Persona.*
+import Denuncia.*
+import Actitud.*
+import Agresion.*
 
-test "testX" {
+object fixture{
+	method unaPersonaMiedosa(){
+		return new Persona(miedo)
+	}
+	method unaPersonaMilitante(){
+		return new Persona(militante)
+	}
+	method unaPersonaAguerrida(){
+		return new Persona(aguerrida)
+	}
+	method unaPersonaPaciente(){
+		return new Persona(new Paciente(10))
+	}
+	method agresionFisica(_agresor){
+		return new AgresionFisica("casa",_agresor,["mala","golpe"],"tubo")
+	}
+	method agresionGrave(_agresor){
+		return new Agresion("casa",_agresor,["mala","inutil"])
+	}
+	method agresionNoGrave(_agresor){
+		return new Agresion("casa",_agresor,["inutil"])
+	}
+}
 
-	assert.that(true)
+test "Una agresion fisica siempre es grave"{
+	var juan = fixture.unaPersonaMilitante()
+	assert.that(fixture.agresionFisica(juan).esGrave())
+}
 
+
+test "Juan no es igual a pedro" {
+	var juan=fixture.unaPersonaMiedosa()
+	var pedro=fixture.unaPersonaMiedosa()
+	assert.notThat(juan==pedro)
 }

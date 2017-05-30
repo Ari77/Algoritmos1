@@ -1,13 +1,14 @@
 import Denuncia.*
 import Actitud.*
+import Agresion.*
+
 
 class Persona{
 	var agresiones=[]
 	var familia=[]
 	var actitud
 
-	constructor(_familia,_actitud){
-		familia=_familia
+	constructor(_actitud){
 		actitud=_actitud
 	}
 	method recibirAgresion(_agresion){
@@ -39,6 +40,9 @@ class Persona{
 	}
 	method participarDeOrganizacionSocial(){
 		self.cambiarActitud(militante)
+	}
+	method agregarFamiliar(unFamiliar){
+		familia.add(unFamiliar)
 	}
 }
 object autoridades{
